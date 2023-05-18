@@ -48,26 +48,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.css' integrity='sha512-bR79Bg78Wmn33N5nvkEyg66hNg+xF/Q8NA8YABbj+4sBngYhv9P8eum19hdjYcY7vXk/vRkhM3v/ZndtgEXRWw==' crossorigin='anonymous'/>
   <title>Php Hotel</title>
 </head>
 <body>
-    <ul>
-        <?php foreach ($hotels as $hotel): ?>
-            <li>
-                <ul>
-                    <li>Nome:<?php echo $hotel['name']?></li>
-                    <li>description:<?php echo $hotel['description']?></li>
-                    <li>parking:<?php echo $hotel['parking']?></li>
-                    <li>vote:<?php echo $hotel['vote']?></li>
-                    <li>distance_to_center:<?php echo $hotel['distance_to_center']?></li>
-                </ul>
-            </li>
-        <?php endforeach; ?>
-        <div>
-          <?php
+    <div class="container">
+    <table class="table">
+  <thead>
+     
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrizione</th>
+      <th scope="col">Parcheggio</th>
+      <th scope="col">voto</th>
+      <th scope="col">Distanza dal Centro</th>
+    </tr>
+</thead>
+<tbody>
+  <?php foreach($hotels as $hotel): ?>
+    <tr>
+        <td><?php echo $hotel['name']?></td>
+        <td><?php echo $hotel['description']?></td>
+        <td><?php echo ($hotel['parking' ] ) ? 'si':'no'?></td>
+        <td><?php echo $hotel['vote']?></td>
+        <td><?php echo $hotel['distance_to_center']?> Km</td>
 
-          ?>
-        </div>
-    </ul>
+    </tr>
+  <?php endforeach; ?>
+   
 </body>
 </html>
